@@ -29,9 +29,11 @@ export class FavouritesComponent implements OnInit {
     }
   }
   deleteFavourite(id: string) {
-    this.idList = this.idList.filter((element) => element !== id);
-    localStorage.setItem('idList', JSON.stringify(this.idList));
-    window.location.reload();
+    if (this.idList) {
+      this.idList = this.idList.filter((element) => element !== id);
+      localStorage.setItem('idList', JSON.stringify(this.idList));
+      window.location.reload();
+    }
   }
 
   private getListFavourites() {

@@ -3,13 +3,14 @@ import { LoginComponent } from './login.component';
 import { of, throwError } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
 
-describe('HomesectionComponent', () => {
+describe('LoginComponent', () => {
   let login: LoginComponent;
   beforeEach(() => {
     login = new LoginComponent(
       {
         // tslint:disable-next-line: object-literal-key-quotes
-        login: () => of({ accesToken: 'bearer' }),
+        checkLogin: () => of({ token: 'bearer' }),
+        getResponseLogin: () => of({ token: 'bearer' }),
       } as any,
       { navigate: () => of(jasmine.createSpy()) } as any
     );
@@ -30,7 +31,7 @@ describe('HomesectionComponent', () => {
     });
 
     login.Login();
-    expect(localStorage.getItem('accesToken')).toBe('bearer');
+    expect(localStorage.getItem('token')).toBe('bearer');
   });
 
   it('login error', () => {

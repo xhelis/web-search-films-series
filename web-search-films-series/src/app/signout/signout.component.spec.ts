@@ -1,23 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { SignoutComponent } from './signout.component';
 
 describe('SignoutComponent', () => {
   let component: SignoutComponent;
-  let fixture: ComponentFixture<SignoutComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SignoutComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SignoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  component = new SignoutComponent({} as any);
 
   it('should create', () => {
     expect(component).toBeTruthy();
