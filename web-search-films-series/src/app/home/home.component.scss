@@ -1,0 +1,46 @@
+.search-container {
+  padding-top: 75px;
+  width: 490px;
+  display: block;
+  margin: 0 auto;
+}
+
+input.search-bar {
+  margin: 0 auto;
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #d0cfce;
+  outline: none;
+  &:focus {
+    border: 1px solid #d0cfce;
+    transition: 0.35s ease;
+  }
+}
+
+a {
+  position: absolute;
+  float: right;
+}
+p {
+  color: red;
+  text-align: center;
+}
+.tableData {
+  margin-left: 25% !important;
+}
+
+li {
+  width: 150px;
+  height: 150px;
+  img {
+    width: 60px;
+    height: 100px;
+  }
+}
+
+.material-icons.md-48 {
+  font-size: 40px;
+  color: gray;
+}

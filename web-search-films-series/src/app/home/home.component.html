@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<form class="search-container" [formGroup]="form">
+  <label for="searchBox"></label>
+  <input
+    type="text"
+    id="searchBox"
+    class="search-bar"
+    placeholder="What movie/serie do you want to see?"
+    formControlName="searchBox"
+  />
+  <a type="button" (click)="search()">
+    <i class="material-icons md-48">search</i>
+  </a>
+  <p *ngIf="isError">Sorry, the film or serie is not been found.</p>
+</form>
+<br />
+<div class="tableData" *ngIf="showData">
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item headers"></li>
+    <li class="list-group-item headers">Tile</li>
+    <li class="list-group-item headers">Type</li>
+    <li class="list-group-item headers">Year</li>
+    <li class="list-group-item headers">Id</li>
+    <li class="list-group-item headers">Action</li>
+  </ul>
+  <ul
+    class="list-group list-group-horizontal-sm"
+    *ngFor="let item of dataFromOMDb"
+  >
+    <li class="list-group-item">
+      <img src="{{ item.Poster }}" />
+    </li>
+    <li class="list-group-item">{{ item.Title }}</li>
+    <li class="list-group-item">{{ item.Type }}</li>
+    <li class="list-group-item">{{ item.Year }}</li>
+    <li class="list-group-item">{{ item.imdbID }}</li>
+    <li class="list-group-item">
+      <button
+        type="button"
+        (click)="addFavourites(item.imdbID)"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        <i class="material-icons md-48">add_task</i>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        Added successfully to favourites.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

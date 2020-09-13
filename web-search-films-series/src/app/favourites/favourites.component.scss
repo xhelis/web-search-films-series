@@ -1,0 +1,25 @@
+.jumbotron {
+  background-color: transparent;
+}
+h1,
+p {
+  text-align: center;
+  color: gray;
+}
+a,
+a:hover,
+a:active {
+  color: gray;
+  text-decoration: none;
+}
+.tableData {
+  margin-left: 25% !important;
+}
+li {
+  width: 150px;
+  height: 150px;
+  img {
+    width: 60px;
+    height: 100px;
+  }
+}

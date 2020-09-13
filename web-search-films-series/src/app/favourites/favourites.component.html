@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" *ngIf="showNoFavourite">
+  <div class="container">
+    <h1 class="display-4">You don't have films or series stored</h1>
+    <p class="lead">
+      Go to home and find your film or serie
+      <a routerLink="/home" routerLinkActive="active" style="margin-top: 1%"
+        >&nbsp;<i class="material-icons md-48">home</i></a
+      >
+    </p>
+  </div>
+</div>
+
+<div class="tableData" *ngIf="showData">
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item headers"></li>
+    <li class="list-group-item headers">Tile</li>
+    <li class="list-group-item headers">Type</li>
+    <li class="list-group-item headers">Year</li>
+    <li class="list-group-item headers">Id</li>
+    <li class="list-group-item headers">Action</li>
+  </ul>
+  <ul
+    class="list-group list-group-horizontal-sm"
+    *ngFor="let item of dataFromOMDb"
+  >
+    <li class="list-group-item">
+      <img src="{{ item.Poster }}" />
+    </li>
+    <li class="list-group-item">{{ item.Title }}</li>
+    <li class="list-group-item">{{ item.Type }}</li>
+    <li class="list-group-item">{{ item.Year }}</li>
+    <li class="list-group-item">{{ item.imdbID }}</li>
+    <li class="list-group-item">
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target="#exampleModal"
+        (click)="deleteFavourite(item.imdbID)"
+      >
+        <i class="material-icons md-48">delete</i>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        Removed successfully from favourites.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

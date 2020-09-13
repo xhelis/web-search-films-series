@@ -1,0 +1,23 @@
+<div class="vid-container">
+  <div class="inner-container">
+    <div class="box">
+      <h1>Login</h1>
+      <form [formGroup]="form" (ngSubmit)="Login()">
+        <input
+          type="text"
+          placeholder="Username"
+          formControlName="username"
+          id="username"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          id="password"
+        />
+        <button type="submit">Login</button>
+      </form>
+      <p class="error" *ngIf="isError">Name or password invalid</p>
+    </div>
+  </div>
+</div>
